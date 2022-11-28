@@ -20,4 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
+    path('account/', include('account.urls')),
+    path('account_type/', include('account_type.urls')),
+    path('transactions/', include('transactions.urls')),
+    path('transaction_type/', include('transaction_type.urls'))
 ]
