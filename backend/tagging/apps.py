@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TransactionTypeConfig(AppConfig):
+class TaggingConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'transaction_type'
+    name = 'tagging'

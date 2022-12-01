@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountTypeConfig(AppConfig):
+class InstitutionConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'account_type'
+    name = 'institution'
