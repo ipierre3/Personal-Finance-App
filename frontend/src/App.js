@@ -18,16 +18,16 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
-    <Router>
-      <SideBar />
+    <div>
+      <Navbar />
         <div>
-          <Navbar />
           <Routes>
             <Route
               path="/"
               element={
                 <PrivateRoute>
                   <HomePage />
+                  <SideBar />
                 </PrivateRoute>
               }
             />
@@ -36,7 +36,7 @@ function App() {
           </Routes>
           <Footer />
         </div>
-    </Router>
+    </div>
   );
 }
 

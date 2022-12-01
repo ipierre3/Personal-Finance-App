@@ -3,8 +3,13 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
-      <p>Copyright © 2022</p>{" "}
+    <footer className="footer">
+      <ul className="footer-links group">
+        <li><a href="https://github.com/ipierre3/Personal-Finance-App">About</a></li>
+        <li><a href="https://github.com/ipierre3/Personal-Finance-App">Terms of Use</a></li>
+        <li><a href="https://github.com/ipierre3/Personal-Finance-App">Privacy</a></li>
+        <li><a href="https://github.com/ipierre3/Personal-Finance-App">Iggy Pierre</a></li>
+      </ul>
     </footer>
   );
 };
