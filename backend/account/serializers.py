@@ -5,18 +5,15 @@ from institution.models import Institution
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
-
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name']
-
+        fields = ['id', 'username', 'email', 'password', 'first_name', 'last_name']
 
 class InstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Institution
         fields = ['id', 'name']
-
 
 class AccountSerializer(serializers.ModelSerializer):
     user = UserSerializer(many=False, read_only=True)
