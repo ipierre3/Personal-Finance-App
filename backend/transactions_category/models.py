@@ -4,6 +4,6 @@ from categories.models import Categories
 
 # Create your models here.
 
-class TransactionCategory(models.Model):
-    transactions = models.ForeignKey(Transactions, on_delete=models.CASCADE)
-    categories = models.ForeignKey(Categories, db_index=True, unique=True, on_delete=models.CASCADE)
+class TransactionsCategory(models.Model):
+    transactions = models.ForeignKey(Transactions, null=False, unique=True, db_index=True, on_delete=models.CASCADE)
+    categories = models.ForeignKey(Categories, null=False, db_index=True, on_delete=models.CASCADE)

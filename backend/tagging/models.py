@@ -5,5 +5,5 @@ from tags.models import Tags
 # Create your models here.
 
 class Tagging(models.Model):
-    transactions = models.ForeignKey(Transactions, on_delete=models.CASCADE)
-    tags = models.ForeignKey(Tags, on_delete=models.CASCADE)
+    transactions = models.ForeignKey(Tags, null=False, on_delete=models.CASCADE)
+    tags = models.ForeignKey(Transactions, null=False, on_delete=models.CASCADE)

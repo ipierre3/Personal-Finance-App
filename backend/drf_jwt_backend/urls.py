@@ -23,8 +23,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('categories/', include('categories.urls')),
     path('institution/', include('institution.urls')),
-    path('tagging/', include('tagging.urls')),
+    # path('tagging/', include('tagging.urls')),
     path('tags/', include('tags.urls')),
     path('transactions/', include('transactions.urls')),
-    path('transactions_category/', include('transactions_category.urls'))
+    # path('transactions_category/', include('transactions_category.urls'))
 ]

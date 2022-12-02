@@ -21,7 +21,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ['id', 'name', 'balance', 'institution_id', 'account_type', 'user_id']
+        fields = ['id', 'name', 'institution_id', 'user_id', 'balance', 'account_type']
         depth = 1
     user_id = serializers.IntegerField(write_only=True)
     institution_id = serializers.IntegerField(write_only=True)
