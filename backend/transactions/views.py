@@ -1,16 +1,16 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import TransactionsSerializer
-from .models import Transactions
+from .models import Transaction
 
 @api_view(['GET','POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def transactions_list(request):
     if request.method == 'GET':
-        transactions = Transactions.objects.all()
+        transactions = Transaction.objects.all()
         serializer = TransactionsSerializer(transactions, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
@@ -23,7 +23,7 @@ def transactions_list(request):
 @api_view(['GET','PUT','DELETE'])
 @permission_classes([IsAuthenticated])
 def transactions_detail(request, pk):
-    transactions = get_object_or_404(Transactions, pk=pk)
+    transactions = get_object_or_404(Transaction, pk=pk)
     if request.method == 'GET':
         serializer = TransactionsSerializer(transactions)
         return Response(serializer.data)

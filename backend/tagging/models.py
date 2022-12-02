@@ -1,9 +1,9 @@
 from django.db import models
-from transactions.models import Transactions
-from tags.models import Tags
+from transactions.models import Transaction
+from tag.models import Tag
 
 # Create your models here.
 
 class Tagging(models.Model):
-    transactions = models.ForeignKey(Tags, null=False, on_delete=models.CASCADE)
-    tags = models.ForeignKey(Transactions, null=False, on_delete=models.CASCADE)
+    transaction = models.ForeignKey(Tag, null=False, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Transaction, null=False, on_delete=models.CASCADE)

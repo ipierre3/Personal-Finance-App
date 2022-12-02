@@ -16,8 +16,8 @@ class InstitutionSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class AccountSerializer(serializers.ModelSerializer):
-    user = UserSerializer(many=False, read_only=True)
-    institution = InstitutionSerializer(many=False, read_only=True)
+    user_id = UserSerializer(many=False, read_only=True)
+    institution_id = InstitutionSerializer(many=False, read_only=True)
 
     class Meta:
         model = Account

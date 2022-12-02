@@ -6,11 +6,12 @@ from rest_framework import status
 from .serializers import AccountSerializer
 from .models import Account
 
+
 @api_view(['GET','POST'])
 @permission_classes([AllowAny])
 def account_list(request):
     if request.method == 'GET':
-        account = Account.objects.all()
+        account = Account.objects.filter()
         serializer = AccountSerializer(account, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
@@ -35,4 +36,3 @@ def account_detail(request, user_id):
     elif request.method == 'DELETE':
         account.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-      

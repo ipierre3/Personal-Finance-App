@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'cars.apps.CarsConfig',  # This app is for example use only
     'account',
-    'categories',
-    'transactions',
+    'category',
+    'transaction',
     'institution',
     'tagging',
-    'tags',
+    'tag',
     'transactions_category'
 ]
 

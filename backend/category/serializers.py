@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Tags
+from .models import Category
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
-class TagsSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-      model = Tags
+      model = Category
       fields = ['id', 'name']
       depth = 1

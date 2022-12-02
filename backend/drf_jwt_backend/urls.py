@@ -21,10 +21,10 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
     path('api/account/', include('account.urls')),
-    path('api/categories/', include('categories.urls')),
+    path('api/category/', include('category.urls')),
     path('api/institution/', include('institution.urls')),
     # path('api/tagging/', include('tagging.urls')),
-    path('api/tags/', include('tags.urls')),
-    path('api/transactions/', include('transactions.urls')),
+    path('api/tag/', include('tag.urls')),
+    path('api/transaction/', include('transaction.urls')),
     # path('api/transactions_category/', include('transactions_category.urls'))
 ]
