@@ -20,11 +20,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
-    path('account/', include('account.urls')),
-    path('categories/', include('categories.urls')),
-    path('institution/', include('institution.urls')),
-    # path('tagging/', include('tagging.urls')),
-    path('tags/', include('tags.urls')),
-    path('transactions/', include('transactions.urls')),
-    # path('transactions_category/', include('transactions_category.urls'))
+    path('api/account/', include('account.urls')),
+    path('api/categories/', include('categories.urls')),
+    path('api/institution/', include('institution.urls')),
+    # path('api/tagging/', include('tagging.urls')),
+    path('api/tags/', include('tags.urls')),
+    path('api/transactions/', include('transactions.urls')),
+    # path('api/transactions_category/', include('transactions_category.urls'))
 ]
