@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import InstitutionSerializer
@@ -8,7 +8,7 @@ from .models import Institution
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def institution_list(request):
     if request.method == 'GET':
         institution = Institution.objects.all()
@@ -23,7 +23,7 @@ def institution_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def institution_detail(request, pk):
     institution = get_object_or_404(Institution, pk=pk)
     if request.method == 'GET':

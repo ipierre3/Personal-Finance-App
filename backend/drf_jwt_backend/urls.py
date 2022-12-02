@@ -26,5 +26,4 @@ urlpatterns = [
     # path('api/tagging/', include('tagging.urls')),
     path('api/tag/', include('tag.urls')),
     path('api/transaction/', include('transaction.urls')),
-    # path('api/transactions_category/', include('transactions_category.urls'))
 ]

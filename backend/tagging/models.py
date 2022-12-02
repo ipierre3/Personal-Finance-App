@@ -1,5 +1,5 @@
 from django.db import models
-from transactions.models import Transaction
+from transaction.models import Transaction
 from tag.models import Tag
 
 # Create your models here.

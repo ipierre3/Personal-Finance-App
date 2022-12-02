@@ -46,8 +46,7 @@ INSTALLED_APPS = [
     'transaction',
     'institution',
     'tagging',
-    'tag',
-    'transactions_category'
+    'tag'
 ]
 
 MIDDLEWARE = [

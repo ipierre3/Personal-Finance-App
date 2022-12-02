@@ -23,5 +23,5 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = ['id', 'name', 'institution_id', 'user_id', 'balance', 'account_type']
         depth = 1
-    user_id = serializers.IntegerField(write_only=True)
-    institution_id = serializers.IntegerField(write_only=True)
+    user_id = serializers.IntegerField(read_only=True)
+    institution_id = serializers.IntegerField(read_only=True)
