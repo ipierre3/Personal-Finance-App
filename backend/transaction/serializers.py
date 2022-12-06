@@ -16,8 +16,8 @@ class CategorySerializer(serializers.ModelSerializer):
       fields = ['id', 'name']
 
 class TransactionSerializer(serializers.ModelSerializer):
-    account = AccountSerializer(many=False, read_only=True)
-    category = CategorySerializer(many=False, read_only=True)
+    account_id = AccountSerializer(many=False, read_only=True)
+    category_id = CategorySerializer(many=False, read_only=True)
     class Meta:
         model = Transaction
         fields = ['id', 'account_id', 'amount', 'description', 'note', 'date', 'category_id', 'is_reccuring']

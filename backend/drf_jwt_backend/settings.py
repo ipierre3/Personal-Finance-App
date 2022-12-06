@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-DATETIME_FORMAT = '%d-%m-%Y %H:%M:%S' 
+DATETIME_FORMAT = '%d-%m-%Y %H:%M:%S'
 
 LANGUAGE_CODE = 'en-us'
 
@@ -129,7 +129,8 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+    'COERCE_DECIMAL_TO_STRING': False
 }
 
 SIMPLE_JWT = {

@@ -14,7 +14,7 @@ def transaction_list(request):
         serializer = TransactionSerializer(transaction, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        request.data["amount"] + request.data["description"] + request.data["date"] + request.data ["account_id"] + request.data["category"] 
+        request.data["amount"] + request.data["description"] + request.data["date"] + request.data ["account_id"] + request.data["category"]
         serializer = TransactionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

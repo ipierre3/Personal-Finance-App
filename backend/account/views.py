@@ -7,7 +7,7 @@ from .serializers import AccountSerializer
 from .models import Account
 
 
-@api_view(['GET','POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
 def account_list(request):
     if request.method == 'GET':
@@ -20,7 +20,8 @@ def account_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['GET','PUT','DELETE'])
+
+@api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([AllowAny])
 def account_detail(request, user_id):
     account = get_object_or_404(Account, user__id=user_id)

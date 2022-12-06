@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/institution/', include('institution.urls')),
     # path('api/tagging/', include('tagging.urls')),
     path('api/tag/', include('tag.urls')),
-    path('api/transaction/', include('transaction.urls')),
+    path('api/transaction/', include('transaction.urls'))
 ]
