@@ -8,7 +8,7 @@ const Footer = () => {
         <li><a href="https://github.com/ipierre3/Personal-Finance-App">About</a></li>
         <li><a href="https://github.com/ipierre3/Personal-Finance-App">Terms of Use</a></li>
         <li><a href="https://github.com/ipierre3/Personal-Finance-App">Privacy</a></li>
-        <li><a href="https://github.com/ipierre3/Personal-Finance-App">Iggy Pierre</a></li>
+        <li><a href="https://github.com/ipierre3/Personal-Finance-App">Iggy</a></li>
       </ul>
     </footer>
   );

@@ -1,12 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
+import favicon from '../../images/favicon.png'
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
   const defaultValues = { username: "", password: "" };
+  const navigate = useNavigate();
   const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
     defaultValues,
     loginUser
@@ -16,37 +18,76 @@ const LoginPage = () => {
     if (isServerError) {
       reset();
     }
-  }, [isServerError]);
+  }, [isServerError, reset]);
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="text"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-        </label>
-        {isServerError ? (
-          <p className="error">Login failed, incorrect credentials!</p>
-        ) : null}
-        <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
-      </form>
+    <div>
+      <header className='header'>
+        <nav className='header-nav group'>
+          <ul className='header-list group'>
+            <li>
+            <Link to="/register">Sign up</Link>
+            </li>
+            <li>
+              <a href='/login' className='header-list-bold'>
+                Log in
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main className='content group'>
+        <section className='content-main'>
+          <h1 className='main-header'>
+          <a href='/'>Log in to FinSMART</a>
+            </h1>
+
+          <form className='form group' onSubmit={handleSubmit}>
+            {isServerError}
+            <fieldset className='form-fieldset'>
+              <div className='input'>
+                <label>Email</label>
+                <input id='form-email' 
+                type='text' 
+                name='user[email]'
+                value={formData.username}
+                onChange={handleInputChange} 
+                />
+              </div>
+
+              <div className='input'>
+                <label>Password</label>
+                <input
+                  id='form-password'
+                  type='password'
+                  name='user[password]'
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+              </div>
+
+              <div className='submit'>
+                <button onClick={() => navigate("/login")}>LOG IN</button>
+              </div>
+            </fieldset>
+          </form>
+
+          <form className='form group' onSubmit={handleSubmit}>
+            <input type='hidden' name='user[email]' value='test@test.com' />
+            <input type='hidden' name='user[password]' value='password' />
+          </form>
+        </section>
+
+        <section className='login-content-sidebar'>
+          <p className='content-sidebar-link'>Don't have an account?</p>
+          <a className='signup-link' href='/register'>
+            Sign up now for free
+          </a>
+        </section>
+      </main>
     </div>
-  );
+    );
 };
 
 export default LoginPage;
