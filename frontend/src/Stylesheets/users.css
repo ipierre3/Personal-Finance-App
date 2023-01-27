@@ -97,10 +97,10 @@ img {
   margin: 0 auto;
   background: #fff;
   width: 700px;
-  height: 655px;
-  border-left: 2px solid #ccc;
-  border-right: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
+  height: 520px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   padding: 43px 25px 50px 50px;
 
 }
@@ -108,17 +108,17 @@ img {
 .content-sidebar {
   float: right;
   display: block;
-  width: -150px;
+  width: 130px;
   color: #666;
 
   background: #eee;
-  height: 620px;
+  height: 355px;
 }
 
 .content-main {
   float: left;
   width: 500px;
-  border-right: 2px solid #eee;
+  border-right: 1px solid #eee;
 }
 
 .content-header {

@@ -29,11 +29,6 @@ ul {
   list-style: none;
 }
 
-img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 /* --- CLEARFIX --- */
 
@@ -82,12 +77,6 @@ img {
 
 .header-list > li:first-child {
   border-left: none;
-}
-
-.FinSMART-logo {
-  width: 30%;
-  height: 30%;
-  margin-top: -10px;
 }
 
 .login-content-sidebar {
@@ -169,7 +158,7 @@ img {
 
 /* --- MAIN --- */
 .main-header {
-  width: 400px;
+  width: 200px;
   font-size: 30px;
   font-weight: 300;
 }
@@ -179,7 +168,7 @@ img {
 
 .form-fieldset {
   float: left;
-  width: 400px;
+  width: 500px;
 }
 
 .input {

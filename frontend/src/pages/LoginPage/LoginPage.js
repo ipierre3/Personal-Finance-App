@@ -3,16 +3,12 @@ import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
-import favicon from '../../images/favicon.png'
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
   const defaultValues = { username: "", password: "" };
   const navigate = useNavigate();
-  const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(
-    defaultValues,
-    loginUser
-  );
+  const [formData, handleInputChange, handleSubmit, reset] = useCustomForm(defaultValues, loginUser);
 
   useEffect(() => {
     if (isServerError) {
@@ -40,17 +36,18 @@ const LoginPage = () => {
       <main className='content group'>
         <section className='content-main'>
           <h1 className='main-header'>
-          <a href='/'>Log in to FinSMART</a>
+          <a href='/'>Log in to Fin
+          <small className='text-muted'>SMART</small></a>
             </h1>
 
           <form className='form group' onSubmit={handleSubmit}>
             {isServerError}
             <fieldset className='form-fieldset'>
               <div className='input'>
-                <label>Email</label>
+                <label>Username</label>
                 <input id='form-email' 
                 type='text' 
-                name='user[email]'
+                name='username'
                 value={formData.username}
                 onChange={handleInputChange} 
                 />
@@ -61,7 +58,7 @@ const LoginPage = () => {
                 <input
                   id='form-password'
                   type='password'
-                  name='user[password]'
+                  name='password'
                   value={formData.password}
                   onChange={handleInputChange}
                 />

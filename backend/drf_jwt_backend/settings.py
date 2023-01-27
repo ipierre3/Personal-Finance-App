@@ -80,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+APPEND_SLASH=False
+
 WSGI_APPLICATION = 'drf_jwt_backend.wsgi.application'
 
 

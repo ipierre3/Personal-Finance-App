@@ -13,8 +13,8 @@ def transaction_list(request):
         transaction = Transaction.objects.all()
         serializer = TransactionSerializer(transaction, many=True)
         return Response(serializer.data)
+      
     elif request.method == 'POST':
-        request.data["amount"] + request.data["description"] + request.data["date"] + request.data ["account_id"] + request.data["category"]
         serializer = TransactionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -24,14 +24,17 @@ def transaction_list(request):
 @permission_classes([AllowAny])
 def transaction_detail(request, pk):
     transaction = get_object_or_404(Transaction, pk=pk)
+    
     if request.method == 'GET':
         serializer = TransactionSerializer(transaction)
         return Response(serializer.data)
+      
     elif request.method == 'PUT':
         serializer = TransactionSerializer(transaction, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+      
     elif request.method == 'DELETE':
         transaction.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

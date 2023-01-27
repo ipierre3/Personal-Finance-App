@@ -8,7 +8,7 @@
 
 .footer-links {
   margin: auto;
-  width: 900px;
+  width: 1000px;
 }
 
 .footer-links > li {
@@ -23,7 +23,7 @@
 }
 
 .footer-links > li:last-child {
-  padding: 10px 10;
+  padding: 10px 0;
   float: right;
 }
 

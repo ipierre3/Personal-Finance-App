@@ -16,12 +16,12 @@ class InstitutionSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 class AccountSerializer(serializers.ModelSerializer):
-    user_id = UserSerializer(many=False, read_only=True)
-    institution_id = InstitutionSerializer(many=False, read_only=True)
+    #user_id = UserSerializer(many=False, read_only=True)
+    institution = InstitutionSerializer(many=False, read_only=True)
 
     class Meta:
         model = Account
-        fields = ['id', 'name', 'institution_id', 'user_id', 'balance', 'account_type']
+        fields = ['id', 'name', 'institution', 'institution_id', 'user_id', 'balance', 'account_type']
         depth = 1
-    user_id = serializers.IntegerField(read_only=True)
+    #user_id = serializers.IntegerField(read_only=True)
     institution_id = serializers.IntegerField(read_only=True)

@@ -6,8 +6,11 @@ import "./RegisterPage.css"
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
   const defaultValues = {
+    username: "",
     email: "",
     password: "",
+    first_name: "",
+    last_name: "",
   };
 
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
@@ -19,8 +22,6 @@ const RegisterPage = () => {
     <div>
       <header className='header'>
         <nav className='header-nav group'>
-          <h1 className='header-logo'></h1>
-
           <ul className='header-list group'>
             <li>
               <a href='/register' className='header-list-bold'>
@@ -35,30 +36,67 @@ const RegisterPage = () => {
       </header>
       <main className='content group'>
         <section className='content-main'>
-          <h1 className='main-header'>
-            See all your finances in one place & create a budget
-          </h1>
-
+          <h1 className='main-header'>All your finances in one place</h1>
           <form className='form group' onSubmit={handleSubmit}>
             <fieldset className='form-fieldset'>
+            <div className='input'>
+                <label>
+                Username:{" "}
+                </label>
+                <input 
+                type='text' 
+                name='username'
+                value={formData.username}
+                onChange={handleInputChange} 
+                />
+              </div>
+
               <div className='input'>
-                <label>Your Email</label>
+                <label>
+                  Email:{" "}
+                </label>
                 <input id='form-email' 
                 type='text' 
-                name='user[email]'
+                name='email'
                 value={formData.email}
                 onChange={handleInputChange} 
                 />
               </div>
 
               <div className='input'>
-                <label>Password</label>
+                <label>
+                  Password:{" "}
+                </label>
                 <input
                   id='form-password'
                   type='password'
-                  name='user[password]'
+                  name='password'
                   value={formData.password}
                   onChange={handleInputChange}
+                />
+              </div>
+
+              <div className='input'>
+                <label>
+                  First Name:{" "}
+                  </label>
+                <input
+                type='text' 
+                name='first_name'
+                value={formData.first_name}
+                onChange={handleInputChange} 
+                />
+              </div>
+
+              <div className='input'>
+                <label>
+                  Last Name:{" "}
+                  </label>
+                <input 
+                type='text' 
+                name='last_name'
+                value={formData.last_name}
+                onChange={handleInputChange} 
                 />
               </div>
 
@@ -69,14 +107,9 @@ const RegisterPage = () => {
           </form>
         </section>
         <section className='content-sidebar'>
-          <h1 className='sidebar-header'>Why you'll love it</h1>
-
-          <ul className='sidebar-list'>
-            <li>See all your accounts in one place</li>
-            <li>Set a budget and pay down your debt</li>
-            <li>Find the best ways to grow your money</li>
-            <li>Stay safe and secure</li>
-          </ul>
+          <h1 className='sidebar-header'>
+            Safety & Security
+          </h1>
         </section>
       </main>
     </div>
