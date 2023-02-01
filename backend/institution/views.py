@@ -15,7 +15,6 @@ def institution_list(request):
         serializer = InstitutionSerializer(institution, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        request.data["category"]
         serializer = InstitutionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

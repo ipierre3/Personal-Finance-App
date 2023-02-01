@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import accounting from 'accounting';
 import axios from 'axios';
 import ApiUtil from "../../utils/ApiUtil";
@@ -10,7 +10,7 @@ const EditAccountModal = (props) => {
   const [accounts, setAccounts] = useState([]);
   const [account, setAccount] = useState(null);
   const [addAccountVisible, setAddAccountVisible] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAccounts = async () => {
@@ -42,7 +42,7 @@ const EditAccountModal = (props) => {
 
   const destroyAccount = (account) => {
     ApiUtil.deleteAccount(account, () => {
-    history.push("/");
+    navigate("/");
     });
   };
 

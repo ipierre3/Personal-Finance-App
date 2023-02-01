@@ -8,33 +8,29 @@ from .models import Transaction
 
 @api_view(['GET','POST'])
 @permission_classes([AllowAny])
-def transaction_list(request):
+def transaction_list(request, apk, cpk):
     if request.method == 'GET':
-        transaction = Transaction.objects.all()
+        transaction = Transaction.objects.filter(account_id=apk, category_id=cpk)
         serializer = TransactionSerializer(transaction, many=True)
         return Response(serializer.data)
-      
     elif request.method == 'POST':
         serializer = TransactionSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(account_id=apk, category_id=cpk)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET','PUT','DELETE'])
 @permission_classes([AllowAny])
-def transaction_detail(request, pk):
+def transaction_detail(request, apk, cpk, pk):
     transaction = get_object_or_404(Transaction, pk=pk)
-    
     if request.method == 'GET':
         serializer = TransactionSerializer(transaction)
         return Response(serializer.data)
-      
     elif request.method == 'PUT':
         serializer = TransactionSerializer(transaction, data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(account_id=apk, category_id=cpk)
         return Response(serializer.data)
-      
     elif request.method == 'DELETE':
         transaction.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

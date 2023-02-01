@@ -112,7 +112,6 @@ li.selected {
   font-weight: 600;
 }
 
-
 .modal > label {
   margin-top: 10px;
   float: left;
@@ -137,28 +136,6 @@ li.selected {
 .modal-form-fieldset {
   float: left;
   width: 520px;
-}
-
-.modal > .gender {
-  float: left;
-}
-
-.gender-male {
-  float: left;
-  margin-left: 52px;
-}
-
-.gender-male  > input {
-  margin-left: 10px;
-}
-
-.gender-female  > input {
-  margin-left: 10px;
-}
-
-.gender-female {
-  float: right;
-  margin-left: 20px;
 }
 
 ul.modal-edit-institutions {
@@ -212,12 +189,12 @@ div.input > label.add-account-label:first-child {
   margin-bottom: 0;
 }
 
-
 p.add-account-label {
   font-size: 11px;
   color: #999;
   margin: 5px 0;
 }
+
 .show-pass > p {
   float: left;
   margin-right: 375px;

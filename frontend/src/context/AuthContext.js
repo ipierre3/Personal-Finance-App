@@ -79,12 +79,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const checkForCurrentUser = () => {
+    const userToken = JSON.parse(localStorage.getItem("token"));
+    const decodedUser = userToken ? jwtDecode(userToken) : null;
+    return setUserObject(decodedUser);
+  };
+
   const contextData = {
     user,
     token,
     loginUser,
     logoutUser,
     registerUser,
+    checkForCurrentUser,
     isServerError,
   };
 

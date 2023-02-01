@@ -1,68 +1,52 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import SearchUtil from "../../utils/SearchUtil";
 
-const Search = (props) => {
+const Search = ({ account, search }) => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
-  const [formIndex, setFormIndex] = useState(null);
-
+  
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get(`/api/search?q=${query}&page=${page}`);
-      setResults(data.results);
-      setTotalCount(data.meta.totalCount);
+    const fetchResults = async () => {
+      const response = await SearchUtil.search(query, page);
+      setResults(response.results);
+      setTotalCount(response.totalCount);
     };
-
     if (query !== "") {
-      fetchData();
+      fetchResults();
     } else {
       setResults([]);
     }
-
   }, [query, page]);
-
-  useEffect((props, query, totalCount) => {
-    if (props.account) {
+  
+  useEffect(() => {
+    if (account) {
       const filteredResults = results.filter(
-        (result) => result.account_id === props.account
+        (result) => result.account_id === account
       );
-      props.search(filteredResults, query, filteredResults.length);
+      search(filteredResults, query, filteredResults.length);
       setResults(filteredResults);
       setTotalCount(filteredResults.length);
     } else {
-        props.search(results, query, totalCount);
+      search(results, query, totalCount);
     }
-  }, [results, props.account]);
-
+  }, [results, account, search, query, totalCount]);
+  
   const handleInput = (e) => {
     setQuery(e.currentTarget.value);
   };
-
+  
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
-    search();
+    setQuery(e.currentTarget.value);
   }
   };
-
-  const search = () => {
-    if (query !== "") {
-      setPage(1);
-    } else {
-      setResults([]);
-      props.search(results, query);
-    }
-  };
-
+  
   const nextPage = () => {
-  setPage(page + 1);
+    setPage(page + 1);
   };
-
-  const makeFormIndex = (index) => {
-  setFormIndex(index);
-  };
-
+  
   return (
   <div className="search-component">
     <input
@@ -72,11 +56,13 @@ const Search = (props) => {
         onKeyDown={handleKeyDown}
         placeholder="Search for a transaction"
       />
-    <button className="search-button" onClick={search}>
+    <button className="search-button" onClick={() => setQuery(query)}>
       Search
     </button>
   </div>
   );
 };
-
+  
 export default Search;
+
+// const [formIndex, setFormIndex] = useState(null);

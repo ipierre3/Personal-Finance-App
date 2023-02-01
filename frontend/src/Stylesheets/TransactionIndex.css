@@ -65,7 +65,6 @@ h5 {
 }
 
 h6 {
-
   font-weight: bold;
   color: #999;
   font-size: 11px;
@@ -75,9 +74,7 @@ h6 {
 
 .transaction-table {
   border: 1px solid #ddd;
-
   border-collapse: separate;
-
   width: 650px;
   font-size: 12px;
   margin-left: 0;

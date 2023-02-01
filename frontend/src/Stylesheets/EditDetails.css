@@ -11,8 +11,6 @@
   width: 71px;
 }
 
-
-
 button.edit-details-cancel,
 button.edit-account-delete {
   float: left;
@@ -54,7 +52,6 @@ button.edit-details-submit {
   color: white;
   background: #45cae6;
 }
-
 
 button.update-user-submit {
   text-transform: uppercase;
@@ -105,13 +102,12 @@ td.amount {
 }
 
 tr.edit-form > td.amount,
-tr.edit-form > td.date,  {
+tr.edit-form > td.date  {
   font-weight: 600;
   color: white;
 }
 
 td.edit-details {
-
   position: relative;
 }
 
@@ -135,8 +131,6 @@ button.edit-details:hover {
   background: #2e2e2e;
 }
 
-
-
 .edit-details-show {
   position: absolute;
   width: 607px;
@@ -148,7 +142,6 @@ button.edit-details:hover {
   padding-left: 35px;
   padding-top: 10px;
 }
-
 
 h7.edit-notes > a {
   color: #676767;

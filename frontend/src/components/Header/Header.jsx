@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useContext, useNavigate } from "react";
-import axios from "axios";
+import React, { useState, useContext, useNavigate } from "react";
 import ModalIndex from "../Modals/ModalIndex";
 import AuthContext from "../../context/AuthContext";
-import "./Header.css";
 
 const Header = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -17,18 +15,6 @@ const Header = (props) => {
         );
       } else setCurrentUser("Hi " + user.displayName);
     }
-    
-  // useEffect(() => {
-  //   const fetchCurrentUser = async () => {
-  //     try {
-  //       const { data } = await axios.get('/api/current_user');
-  //       setCurrentUser(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-  //   fetchCurrentUser();
-  // }, []);
 
   let overviewClass = "overview";
   let transactionClass = "transaction";

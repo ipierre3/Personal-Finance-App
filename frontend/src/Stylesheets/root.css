@@ -1,4 +1,4 @@
-// ROOT HEADER
+ROOT HEADER
 
 .root-header {
   background: #3c3c3c;
@@ -37,7 +37,6 @@
   width: 1000px;
 }
 
-
 .root-header-list {
   float: right;
 }
@@ -46,7 +45,7 @@
   float: left;
 }
 
-// CONTENT HEADER
+CONTENT HEADER
 
 .content-header {
   background: #f7f7f7;
@@ -91,7 +90,8 @@
   font-weight: 600;
 }
 
-// CONTENT
+CONTENT
+
 .root-content {
   width: 1000px;
   margin: auto;
@@ -99,7 +99,8 @@
   position: relative;
 }
 
-//ROOT SIDEBAR
+ROOT SIDEBAR
+
 .root-content-sidebar {
   min-height: 650px;
   float: left;

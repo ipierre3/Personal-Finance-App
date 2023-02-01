@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import AccountFormModal from "./AccountFormModal";
-import axios from "axios";
+import ApiUtil from "../../utils/ApiUtil";
 
 const AccountModal = (props) => {
   const [institutions, setInstitutions] = useState([]);
   const [institution, setInstitution] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/institution/").then((res) => {
-      setInstitutions(res.data);
+    ApiUtil.GetInstitutions.then((response) => {
+      setInstitutions(response.data);
     });
 
     return () => {};
@@ -47,7 +47,7 @@ const AccountModal = (props) => {
           toggleModal={props.toggleModal}
           goBack={unselectInstitution}
           inst={institution.name}
-          logo={institution.logo_url}
+          // logo={institution.logo_url}
           id={institution.id}
         />
     );

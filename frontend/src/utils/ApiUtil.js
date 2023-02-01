@@ -5,9 +5,9 @@ const ApiUtil = {
   GetAccounts() {
     const [accounts, setAccounts] = useState([]);
     useEffect(() => {
-      axios.get('http://127.0.0.1:8000/api/account/')
-      .then(res => setAccounts(res.data))
-      .catch(err => console.log(err));
+      let response = axios.get('http://127.0.0.1:8000/api/account/')
+      setAccounts(response.data)
+      console.log(response)
     }, []);
 
     return accounts;
@@ -16,9 +16,9 @@ const ApiUtil = {
   GetAccount(id) {
     const [account, setAccount] = useState({});
     useEffect(() => {
-      axios.get(`http://127.0.0.1:8000/api/account/${id}`)
-      .then(res => setAccount(res.data))
-      .catch(err => console.log(err));
+      let response = axios.get(`http://127.0.0.1:8000/api/account/${id}`)
+      setAccount(response.data)
+      console.log(response)
     }, [id]);
 
     return account;
@@ -27,9 +27,9 @@ const ApiUtil = {
   GetTransactions() {
     const [transactions, setTransactions] = useState([]);
     useEffect(() => {
-      axios.get('http://127.0.0.1:8000/api/transaction/')
-      .then(res => setTransactions(res.data))
-      .catch(err => console.log(err));
+      let response = axios.get('http://127.0.0.1:8000/api/transaction/');
+      setTransactions(response.data);
+      console.log(response);
     }, []);
 
     return transactions;
@@ -56,7 +56,7 @@ const ApiUtil = {
   GetInstitutions() {
     const [institutions, setInstitutions] = useState([]);
     useEffect(() => {
-      axios.get('/api/institutions')
+      axios.get('http://127.0.0.1:8000/api/institution/')
       .then(res => setInstitutions(res.data))
       .catch(err => console.log(err));
     }, []);

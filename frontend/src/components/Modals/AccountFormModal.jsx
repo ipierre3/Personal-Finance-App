@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ApiUtil from "../../utils/ApiUtil";
 
 const AccountFormModal = (props) => {
   const [userID, setUserID] = useState("");
   const [accountPassword, setAccountPassword] = useState("");
-  const [accountType, setAccountType] = useState("");
   const [accountName, setAccountName] = useState("");
   const [checked, setChecked] = useState(false);
   const [flash, setFlash] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const toggleShowPassword = () => {
     setChecked(!checked);
@@ -24,15 +23,13 @@ const AccountFormModal = (props) => {
       institution_id: instId,
     };
 
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/api/account/", account);
-      const id = response.data.id;
-      props.toggleModal();
-      history.push(`/accounts/${id}`);
-    } catch (error) {
-        setFlash(error.response.data.errors);
-    }
+    ApiUtil.createAccount(account, navToNewAccount);
   };
+
+  const navToNewAccount = (id) => {
+    props.toggleModal();
+    navigate(`http://127.0.0.1:8000/api/account/${id}`);
+    };
 
   const goBack = () => {
     props.goBack();
@@ -54,6 +51,8 @@ const AccountFormModal = (props) => {
     );
   }
 
+  const institution = props.inst;
+
   const generateBalance = () => {
     return Math.floor(Math.random() * (25000 - 4000) + 4000);
   };
@@ -65,14 +64,14 @@ const AccountFormModal = (props) => {
 
   return (
     <div className="modal-edit-form">
-      <h1 className="main-header">{props.inst}</h1>
+      <h1 className="main-header">{institution}</h1>
       <form className="modal-form group">
         {errors}
         <fieldset className="modal-form-fieldset">
           <div className="input">
             <label className="add-account-label">Account Name</label>
             <p className="add-account-label">
-              Name your {props.inst} account
+              Name your {institution} account
             </p>
             <input
               type="text"
@@ -84,7 +83,7 @@ const AccountFormModal = (props) => {
           <div className="input">
             <label className="add-account-label">User ID</label>
             <p className="add-account-label">
-              for your {props.inst} account
+              for your {institution} account
             </p>
             <input
               type="text"
@@ -96,7 +95,7 @@ const AccountFormModal = (props) => {
           <div className="input">
             <label className="add-account-label">Password</label>
             <p className="add-account-label">
-              for your {props.inst} account
+              for your {institution} account
             </p>
             <input
               type={passwordInputType}
@@ -130,3 +129,5 @@ const AccountFormModal = (props) => {
 };  
 
 export default AccountFormModal;
+
+// const [accountType, setAccountType] = useState("");

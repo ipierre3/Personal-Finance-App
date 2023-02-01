@@ -10,13 +10,11 @@
   font-size: 14px;
 }
 
-
 .user-form-errors > ul {
   float: left;
   margin-left: 15px;
   display: block;
 }
-
 
 .fa-exclamation-triangle {
   float: left;

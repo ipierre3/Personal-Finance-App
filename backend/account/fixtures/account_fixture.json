@@ -1,0 +1,68 @@
+[
+  {
+      "model": "account.Account",
+      "pk": 1,
+      "fields": {
+            "name": "Charles Schwab Checking Account",
+            "institution": 1,
+            "user": 1,
+            "balance": 2019.01,
+            "account_type": "Cash"
+      }
+  },
+  {
+      "model": "account.Account",
+      "pk": 2,
+      "fields": {
+          "name": "Paypal Business Account",
+          "institution": 3,
+          "user": 1,
+          "balance": 563.19,
+          "account_type": "Cash"
+      }
+  },
+  {
+      "model": "account.Account",
+      "pk": 3,
+      "fields": {
+            "name": "DIRECT STAFFORD SUBSIDIZED",
+            "institution": 2,
+            "user": 1,
+            "balance": -13486.24,
+            "account_type": "Loan"
+      }
+  },
+  {
+      "model": "account.Account",
+      "pk": 4,
+      "fields": {
+            "name": "DIRECT STAFFORD UNSUBSIDIZED",
+            "institution": 2,
+            "user": 1,
+            "balance": -15486.24,
+            "account_type": "Loan"
+      }
+  },
+  {
+      "model": "account.Account",
+      "pk": 5,
+      "fields": {
+            "name": "Capital One Venture One",
+            "institution": 4,
+            "user": 1,
+            "balance": -116.25,
+            "account_type": "Credit Cards"
+      }
+  },
+  {
+      "model": "account.Account",
+      "pk": 6,
+      "fields": {
+            "name": "Fidelity 401(k)",
+            "institution": 5,
+            "user": 1,
+            "balance": 12653.25,
+            "account_type": "Investments"
+      }
+  }
+]

@@ -10,3 +10,9 @@ class Account(models.Model):
     user = models.ForeignKey(User, null=False, db_index=True, on_delete=models.CASCADE)
     balance = models.DecimalField(null=False, max_digits=8, decimal_places=2)
     account_type = models.CharField(null=False, db_index=True, max_length=255)
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['institution'], name='index_account_on_institution'),
+            models.Index(fields=['user'], name='index_account_on_user'),
+        ]

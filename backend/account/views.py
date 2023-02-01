@@ -9,30 +9,29 @@ from .models import Account
 
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])
-def account_list(request):
+def account_list(request, uid, inst_id):
     if request.method == 'GET':
-        account = Account.objects.filter()
+        account = Account.objects.filter(user_id=uid, institution_id=inst_id)
         serializer = AccountSerializer(account, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = AccountSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(user_id=uid, institution_id=inst_id)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([AllowAny])
-def account_detail(request, user_id):
-    account = get_object_or_404(Account, user__id=user_id)
+def account_detail(request, uid, inst_id, pk):
+    account = get_object_or_404(Account, pk=pk)
     if request.method == 'GET':
-        userAccount = Account.objects.filter(user__id=user_id)
-        serializer = AccountSerializer(userAccount, many=True)
+        serializer = AccountSerializer(account)
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = AccountSerializer(account, data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(user_id=uid, institution_id=inst_id)
         return Response(serializer.data)
     elif request.method == 'DELETE':
         account.delete()
